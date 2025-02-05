@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head> <title> rock paper scissors game </title></head>
+<body>
+  <p>
+    THis is a Rock Paper Scissor game.
+  </p>
+  <p> <strong> Rules </strong></p>
+  <p> 1. Rock beats Scissors<br> 2. Paper beats Rock <br> 3. Scissors beats Paper </p>
+  <p> select one </p>
+  <button onclick="
+    playGame('Rock');
+  "> Rock </button>
+
+  <button onclick="
+    playGame('Paper');
+  "> Paper </button>
+
+  <button onclick="
+    playGame('Scissors');
+  "
+  > Scissors </button>
+
+
+  <script>
+    function playGame(playersMove) {
+      const computerMove = pickComputerMove();
+      let result = ' ';
+
+      if (playersMove === 'Scissors') {
+        if (computerMove === 'Rock'){
+          result = 'You lose';
+      } else if (computerMove === 'Paper'){
+          result = 'You win';
+      }else if (computerMove === 'Scissors'){
+          result = 'Tie';
+      } 
+      } 
+      
+      else if (playersMove === 'Paper') {
+        if (computerMove === 'Rock'){
+          result = 'You win';
+      } else if (computerMove === 'Paper'){
+         result = 'Tie';
+      } else if (computerMove === 'Scissors'){
+         result = 'You lose';
+      }
+      }
+
+      else if (playersMove === 'Rock') {
+        if (computerMove === 'Rock'){
+          result = 'Tie';
+      } else if (computerMove === 'Paper'){
+          result = 'You lose';
+      }else if (computerMove === 'Scissors'){
+          result = 'You win';
+      }
+      }
+      alert(`You picked ${playersMove}, computer picked ${computerMove}. ${result}`);
+    }
+    
+   
+    function pickComputerMove() {
+      const randomNum = Math.random();
+      let result = ' ';
+      let computerMove = ' ';
+
+      if (randomNum >= 0 && randomNum <= 1/3 ) {
+        computerMove = 'Rock';
+      }
+      else if (randomNum > 1/3 && randomNum <= 2/3) {
+        computerMove = 'Paper';
+      }
+      else if (randomNum > 2/3 && randomNum <= 1){
+        computerMove = 'Scissors';
+      }
+      return (computerMove);
+    }
+  </script>
+
+</body>
+
+</html>
