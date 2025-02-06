@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> object </title>
+</head>
+
+<body>
+
+  <script>
+    const product = {
+      name: 'socks',
+      price: 1200
+    }
+    console.log(product);
+    console.log(product.name);
+    console.log(product.price);
+
+    product.name = 'wool socks';
+    console.log(product);
+
+    product.newProperty = true;
+    console.log(product);
+
+    delete product.newProperty;
+    console.log(product);
+
+    const product2 = {
+      name: 'shirt',
+      'delivery-time': '1 day',
+      ratings: {
+        stars: 4.5,
+        counts: 43
+      },
+      func: function func1() {
+        console.log(3+4);
+      }
+    }
+
+    console.log(product2);
+    //The square bracket is used when you want to access objects like the delivery-time. this is because if we use dot notation, then the dash will be regarded as minus so to avoid that we use square bracket notation.
+    console.log(product2['delivery-time']);
+    console.log(product2['name']);
+    console.log(product2.ratings.counts);
+
+    //This is how to call a function written inside an object. those kind of functions are called methods.
+    product2.func();
+
+    //JSON -- javascript object notation.json is similar to normal javascript object, the only difference is its syntax and limitation. json can't have methon(functionin the object), and it must all use double quote, ie, the key and value. javascript object only makes sense in javascrip while json syntax can be understood by almost all programming  language. so we use json when we want to send data to two computers that might use different programming language. and also when we store data.
+
+    // json bullt in object helps us convert jaascript object to json we use JSON.stingifytoachieve that.
+
+    console.log(JSON.stringify(product2));
+
+    // to do the opposite,we use JSON.parse
+    const jsonString = JSON.stringify(product2);
+    console.log(JSON.parse(jsonString));
+
+    //local storage is another built in object just like json. It is used to save values more permanently.
+
+    // To save item in local storage
+    localStorage.setItem('message', 'hello');
+
+    // To get item from the local storage
+    localStorage.getItem('message');
+    </script>
+
+</body>
+
+</html>
